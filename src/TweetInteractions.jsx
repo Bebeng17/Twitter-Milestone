@@ -11,7 +11,7 @@ const TweetInteractions = ({likes,reTweets,replies,onLike,onRetweet,onReply}) =>
     <div>
       <button onClick={onLike}>Like {likes} </button>
       <button onClick={onRetweet}>Retweet {reTweets} </button>
-      <button onClick={onReply}>Reply {replies} </button>
+      {/* <button onClick={onReply}>Reply {replies} </button> */}
     </div>
 
 

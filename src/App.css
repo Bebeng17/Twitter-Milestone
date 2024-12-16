@@ -55,11 +55,13 @@ header{
   margin: 5px;
 }
 .sidebar {
-  width: 25vw;
+  width: 20vw;
+  margin: 5px;
+  position: fixed;
 }
-.sidebar li {
-  /* background-color: #1da1f2; */
-}
+/* .sidebar li {
+  background-color: #1da1f2;
+} */
 .sidebar li:hover {
   background-color: #1991d1;
 }
@@ -69,23 +71,28 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 10px;
+  right: 0;
+  position: absolute;
 }
 .main-sub {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  width: 100%;
+  justify-content: space-between;
 }
-.profile {
+/* .profile {
   margin-left: 400px;
 }
 .profile img {
-}
+} */
 .profile h2{
   margin: 0px;
 }
 .tweetInput {
   margin-top: 0;
-}
+};
 .app.light {
   background-color: #ffffff;
   color: #000000;
@@ -94,4 +101,5 @@ main {
 .app.dark {
   background-color: #2e2c2c;
   color: white;
+  height: 33720px;
 }

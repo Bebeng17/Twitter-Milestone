@@ -16,10 +16,28 @@ function App() {
   const [theme, setTheme] = useState('light'); 
 
 
-  useEffect(() => {
+//   useEffect(() => {
+//   fetch('https://jsonplaceholder.org/posts')
+//     .then((response) => response.json())
+//     .then((data) => setTweets(data))
+//     .catch((error) => console.error('Error fetching tweets:', error));
+// }, []);
+
+
+
+useEffect(() => {
   fetch('https://jsonplaceholder.org/posts')
     .then((response) => response.json())
-    .then((data) => setTweets(data))
+    .then((data) => {
+      const tweetsWithReplies = data.map((tweet) => ({
+        ...tweet,
+        content: tweet.content, 
+        author: tweet.userId, 
+        updatedAt: new Date().toLocaleString(),
+        replies: [] 
+      }));
+      setTweets(tweetsWithReplies);
+    })
     .catch((error) => console.error('Error fetching tweets:', error));
 }, []);
 
@@ -46,7 +64,17 @@ function App() {
   }, []);
 
   const addTweet = (tweet) => {
-    setTweets([tweet, ...tweets]);
+    setTweets([{...tweet, replies: []  },...tweets]);
+  };
+
+  const handleReply = (tweetId, replyText) => {
+    setTweets (
+      tweets.map((tweet) => 
+      tweet.id === tweetId
+      ? { ...tweet, replies: [...(tweet.replies || []), replyText]}
+      : tweet
+    )
+    );
   };
 
   // const likeTweet = (tweetId) => {
@@ -70,6 +98,7 @@ function App() {
       </div>
       <TweetList 
       tweets ={tweets}
+      onReply = {handleReply}
       // likeTweet={likeTweet}
        />
       </main>

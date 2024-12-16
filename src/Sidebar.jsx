@@ -1,4 +1,5 @@
 import React from "react";
+import './app.css';
 
 
 
@@ -17,7 +18,6 @@ const Sidebar = () => {
           <li>Notifications</li>
           <li>Messages</li>
           <li>Bookmarks</li>
-          <li>Lists</li>
           <li>Profile</li>
           <li>More</li>
         </ul>
