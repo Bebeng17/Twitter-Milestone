@@ -450,7 +450,7 @@ form button:hover {
     width: 100%;
     height: auto;
     border-right: none;
-    padding: 10px;
+    padding: 0px;
   }
 
   .profile {
